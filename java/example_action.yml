@@ -1,0 +1,21 @@
+name: 'Example Composite Action'
+description: 'A composite action that runs a series of steps'
+inputs:
+  example_input:
+    description: 'An example input'
+    required: true
+    default: 'default value'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Step 1
+      run: echo "Hello, ${{ inputs.example_input }}"
+      shell: bash
+
+    - name: Step 2
+      run: |
+        echo "This is a multi-line script."
+        echo "Current directory contents:"
+        ls
+      shell: bash
